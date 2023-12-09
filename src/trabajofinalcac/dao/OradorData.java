@@ -48,7 +48,7 @@ public class OradorData {
         try {
             Connection connection = (Connection) Conexion.getConexion();
             ps = connection.prepareStatement(sql);
-            ps.setString(1, "tema");
+            ps.setString(1, Tema);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -60,6 +60,9 @@ public class OradorData {
                 // Obtener la fecha de alta del ResultSet como LocalDate
                 LocalDate fechaAlta = rs.getDate("fecha_alta").toLocalDate();
                 orador.setFecha_alta(fechaAlta);
+
+                // Agregar el orador a la lista
+                oradores.add(orador);
             }
             ps.close();
 
@@ -68,7 +71,6 @@ public class OradorData {
         }
 
         return oradores;
-
     }
-    
+
 }
