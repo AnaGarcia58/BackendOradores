@@ -1,4 +1,3 @@
-
 package trabajofinalcac;
 
 import trabajofinalcac.Entidad.Orador;
@@ -6,7 +5,6 @@ import java.time.LocalDate;
 import java.util.List;
 import trabajofinalcac.dao.Conexion;
 import trabajofinalcac.dao.OradorData;
-
 
 public class TrabajoFinalCaC {
 
@@ -32,25 +30,43 @@ public class TrabajoFinalCaC {
 //        }
 //    }
 //    
-     // Supongamos que queremos listar los oradores por el tema "Inteligencia Artificial"
-        String temaBuscado = "Desarrollo Web";
+        // Supongamos que queremos listar los oradores por el tema "Inteligencia Artificial"
+//        String temaBuscado = "Desarrollo Web";
+//
+//        List<Orador> oradoresPorTema = oradorData.listarOradoresPorTema(temaBuscado);
+//
+//        if (!oradoresPorTema.isEmpty()) {
+//            System.out.println("Oradores encontrados para el tema '" + temaBuscado + "':");
+//            for (Orador orador : oradoresPorTema) {
+//                System.out.println("ID: " + orador.getIdOrador());
+//                System.out.println("Nombre: " + orador.getNombre());
+//                System.out.println("Apellido: " + orador.getApellido());
+//                System.out.println("Correo: " + orador.getMail());
+//                System.out.println("Fecha de alta: " + orador.getFecha_alta());
+//                // Imprime los demás atributos si es necesario
+//                System.out.println("-----------------------------");
+//            }
+//        } else {
+//            System.out.println("No se encontraron oradores para el tema '" + temaBuscado + "'.");
+//        }
+//    }
 
-        List<Orador> oradoresPorTema = oradorData.listarOradoresPorTema(temaBuscado);
-
-        if (!oradoresPorTema.isEmpty()) {
-            System.out.println("Oradores encontrados para el tema '" + temaBuscado + "':");
-            for (Orador orador : oradoresPorTema) {
+        List<Orador> oradores = oradorData.listarOradores();
+        
+        if (!oradores.isEmpty()) {
+            
+            for (Orador orador : oradores) {
                 System.out.println("ID: " + orador.getIdOrador());
                 System.out.println("Nombre: " + orador.getNombre());
                 System.out.println("Apellido: " + orador.getApellido());
                 System.out.println("Correo: " + orador.getMail());
+                System.out.println("Tema: " + orador.getTema());
                 System.out.println("Fecha de alta: " + orador.getFecha_alta());
-                // Imprime los demás atributos si es necesario
+                
                 System.out.println("-----------------------------");
             }
         } else {
-            System.out.println("No se encontraron oradores para el tema '" + temaBuscado + "'.");
+            System.out.println("No se encontraron oradores");
         }
     }
-
 }
